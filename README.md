@@ -1,4 +1,4 @@
-# ################################################### Code structure following for this project ###################################################
+# Code structure following for this project
 rms-new/
 |-- src/
 |   |-- controllers/
@@ -22,7 +22,7 @@ rms-new/
 |-- tsconfig.json
 |-- package.json
 
-# ################################################### Explanation for code structure repos ###################################################
+# Explanation for code structure repos
 src/:         Contains the source code of your application.
 controllers/: Handles HTTP requests, interacts with services, and sends the response back.
 models/:      Defines your data structures using TypeScript classes/interfaces.
@@ -37,7 +37,7 @@ node_modules/:Contains project dependencies.
 tsconfig.json: TypeScript configuration file.
 package.json: Node.js package file with project metadata and dependencies.
 
-# ################################################### Coding standard needs to follow ###################################################
+# Coding standard needs to follow
 # TypeScript Coding Standards:
 File Naming:
 Use camelCase for filenames.
