@@ -41,3 +41,13 @@ export async function getOrganizationByName(orgName:string) {
         console.log("Error in org detail by name - "+ error);
     }
 }
+
+export async function getOrgAdminsForSeatsIncreaseEmail(orgId:number) {
+    try{
+        let sql = `select * from user u left join user_security_profile usp on u.id=usp.user_id where u.is_active = 1 and usp.security_profile_id = 3 and u.organization_id = ${orgId}`;        
+        const [orgAdmins, fields] = await executeQuery(sql);
+        return orgAdmins;
+    } catch (error) {
+        console.log("Error in org detail by name - "+ error);
+    }
+}
