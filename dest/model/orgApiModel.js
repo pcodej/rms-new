@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOrganizationByName = exports.getOrgProductWiseLicenseInformation = exports.getOrgInformation = exports.getActiveOrganizations = void 0;
+exports.getOrgAdminsForSeatsIncreaseEmail = exports.getOrganizationByName = exports.getOrgProductWiseLicenseInformation = exports.getOrgInformation = exports.getActiveOrganizations = void 0;
 const executeQuery_1 = require("../config/executeQuery");
 function getActiveOrganizations(param) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -63,3 +63,16 @@ function getOrganizationByName(orgName) {
     });
 }
 exports.getOrganizationByName = getOrganizationByName;
+function getOrgAdminsForSeatsIncreaseEmail(orgId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            let sql = `select * from user u left join user_security_profile usp on u.id=usp.user_id where u.is_active = 1 and usp.security_profile_id = 3 and u.organization_id = ${orgId}`;
+            const [orgAdmins, fields] = yield (0, executeQuery_1.executeQuery)(sql);
+            return orgAdmins;
+        }
+        catch (error) {
+            console.log("Error in org detail by name - " + error);
+        }
+    });
+}
+exports.getOrgAdminsForSeatsIncreaseEmail = getOrgAdminsForSeatsIncreaseEmail;

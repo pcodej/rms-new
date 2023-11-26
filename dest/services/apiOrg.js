@@ -9,57 +9,71 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getOrgAdminsSeatsIncreaseEmail = exports.getOrgByName = exports.getOrgProductWiseLicenseInfo = exports.getOrgInfo = exports.getActiveOrgs = void 0;
 const orgApiModel_1 = require("../model/orgApiModel");
 function getActiveOrgs() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let params = 'id, name, is_active';
             const activOrgs = yield (0, orgApiModel_1.getActiveOrganizations)(params);
-            console.log(activOrgs);
+            return activOrgs;
         }
         catch (error) {
             console.log("Error in getting active orgs - " + error);
         }
     });
 }
+exports.getActiveOrgs = getActiveOrgs;
 function getOrgInfo() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let orgId = 11;
             const orgInfo = yield (0, orgApiModel_1.getOrgInformation)(orgId);
-            console.log(orgInfo);
+            return orgInfo;
         }
         catch (error) {
             console.log("Error in getting orgs info- " + error);
         }
     });
 }
+exports.getOrgInfo = getOrgInfo;
 function getOrgProductWiseLicenseInfo() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let orgId = 14513;
             let productId = 1;
             const orgProductInfo = yield (0, orgApiModel_1.getOrgProductWiseLicenseInformation)({ orgId, productId });
-            console.log(orgProductInfo);
+            return orgProductInfo;
         }
         catch (error) {
             console.log("Error in getting orgs info- " + error);
         }
     });
 }
+exports.getOrgProductWiseLicenseInfo = getOrgProductWiseLicenseInfo;
 function getOrgByName() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let orgName = "TestSchool";
             const orgInfo = yield (0, orgApiModel_1.getOrganizationByName)(orgName);
-            console.log(orgInfo);
+            return orgInfo;
         }
         catch (error) {
             console.log("Error in getting orgs info by name- " + error);
         }
     });
 }
-// getActiveOrgs();
-// getOrgInfo();
-// getOrgProductWiseLicenseInfo();
-getOrgByName();
+exports.getOrgByName = getOrgByName;
+function getOrgAdminsSeatsIncreaseEmail() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            let orgId = 11;
+            const orgAdmins = yield (0, orgApiModel_1.getOrgAdminsForSeatsIncreaseEmail)(orgId);
+            return orgAdmins;
+        }
+        catch (error) {
+            console.log("Error in getting orgs info by name- " + error);
+        }
+    });
+}
+exports.getOrgAdminsSeatsIncreaseEmail = getOrgAdminsSeatsIncreaseEmail;
