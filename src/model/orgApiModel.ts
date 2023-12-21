@@ -24,7 +24,7 @@ export async function getOrgInformation(orgId: number) {
 export async function getOrgProductWiseLicenseInformation({orgId, productId}: OrgParams) {
     try{
         let sql = `select * from organization_license ol where ol.organization_id = ${orgId} and ol.product_id = ${productId}`;        
-        const [orgProductInfo, fields] = await executeQuery(sql);
+        const [orgProductInfo, fields] = await executeQuery(sql);        
         return orgProductInfo;
     }catch (error) {
         console.log("Error in org procuct fetch - "+ error);

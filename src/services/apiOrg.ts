@@ -1,7 +1,7 @@
+import { OrgParams } from "../model/common";
 import { getActiveOrganizations, getOrgInformation, getOrgProductWiseLicenseInformation, getOrganizationByName, getOrgAdminsForSeatsIncreaseEmail} from "../model/orgApiModel"
-export async function getActiveOrgs() {
+export async function getActiveOrgs(params: string) {
     try{
-        let params = 'id, name, is_active';
         const activOrgs = await getActiveOrganizations(params);
         return activOrgs;
     }catch (error) {
@@ -9,9 +9,8 @@ export async function getActiveOrgs() {
     }
     
 }
-export async function getOrgInfo() {
+export async function getOrgInfo(orgId: number) {
     try{
-        let orgId = 11;
         const orgInfo = await getOrgInformation(orgId);
         return orgInfo;
     }catch (error) {
@@ -20,10 +19,8 @@ export async function getOrgInfo() {
     
 }
 
-export async function getOrgProductWiseLicenseInfo() {
+export async function getOrgProductWiseLicenseInfo({orgId, productId}: OrgParams) {
     try{
-        let orgId = 14513;
-        let productId = 1;
         const orgProductInfo = await getOrgProductWiseLicenseInformation({orgId, productId});
         return orgProductInfo;
     }catch (error) {
@@ -31,9 +28,8 @@ export async function getOrgProductWiseLicenseInfo() {
     }
 }
 
-export async function getOrgByName() {
+export async function getOrgByName(orgName: string) {
     try {
-        let orgName = "TestSchool";
         const orgInfo = await getOrganizationByName(orgName);
         return orgInfo;
     } catch (error) {
@@ -41,9 +37,8 @@ export async function getOrgByName() {
     }
 }
 
-export async function getOrgAdminsSeatsIncreaseEmail() {
+export async function getOrgAdminsSeatsIncreaseEmail(orgId: number) {
     try{
-        let orgId = 11;
         const orgAdmins = await getOrgAdminsForSeatsIncreaseEmail(orgId);
         return orgAdmins;
     } catch (error) {

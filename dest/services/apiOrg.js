@@ -11,10 +11,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOrgAdminsSeatsIncreaseEmail = exports.getOrgByName = exports.getOrgProductWiseLicenseInfo = exports.getOrgInfo = exports.getActiveOrgs = void 0;
 const orgApiModel_1 = require("../model/orgApiModel");
-function getActiveOrgs() {
+function getActiveOrgs(params) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let params = 'id, name, is_active';
             const activOrgs = yield (0, orgApiModel_1.getActiveOrganizations)(params);
             return activOrgs;
         }
@@ -24,10 +23,9 @@ function getActiveOrgs() {
     });
 }
 exports.getActiveOrgs = getActiveOrgs;
-function getOrgInfo() {
+function getOrgInfo(orgId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let orgId = 11;
             const orgInfo = yield (0, orgApiModel_1.getOrgInformation)(orgId);
             return orgInfo;
         }
@@ -37,11 +35,9 @@ function getOrgInfo() {
     });
 }
 exports.getOrgInfo = getOrgInfo;
-function getOrgProductWiseLicenseInfo() {
+function getOrgProductWiseLicenseInfo({ orgId, productId }) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let orgId = 14513;
-            let productId = 1;
             const orgProductInfo = yield (0, orgApiModel_1.getOrgProductWiseLicenseInformation)({ orgId, productId });
             return orgProductInfo;
         }
@@ -51,10 +47,9 @@ function getOrgProductWiseLicenseInfo() {
     });
 }
 exports.getOrgProductWiseLicenseInfo = getOrgProductWiseLicenseInfo;
-function getOrgByName() {
+function getOrgByName(orgName) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let orgName = "TestSchool";
             const orgInfo = yield (0, orgApiModel_1.getOrganizationByName)(orgName);
             return orgInfo;
         }
@@ -64,10 +59,9 @@ function getOrgByName() {
     });
 }
 exports.getOrgByName = getOrgByName;
-function getOrgAdminsSeatsIncreaseEmail() {
+function getOrgAdminsSeatsIncreaseEmail(orgId) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            let orgId = 11;
             const orgAdmins = yield (0, orgApiModel_1.getOrgAdminsForSeatsIncreaseEmail)(orgId);
             return orgAdmins;
         }

@@ -15,6 +15,7 @@ function executeQuery(sql) {
     return __awaiter(this, void 0, void 0, function* () {
         const { connection } = yield (0, database_1.connectToDatabase)();
         try {
+            console.log(sql);
             const [row, fields] = yield connection.execute(sql);
             return row;
         }

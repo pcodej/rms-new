@@ -94,10 +94,10 @@ body {
             <p>Please enter your credentials to login.</p>
           </div>
         </div>
-        <form class="login-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
-          <button>login</button>
+        <form class="login-form" action="/login" method="POST">
+          <input type="text" placeholder="username" name="username"/>
+          <input type="password" placeholder="password" name="pass"/>
+          <button type="submit">login</button>
           <p class="message">Not registered? <a href="#">Create an account</a></p>
         </form>
       </div>
